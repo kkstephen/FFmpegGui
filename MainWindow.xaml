@@ -1,0 +1,78 @@
+﻿<Window x:Class="FFGui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FFGui"
+        mc:Ignorable="d"
+        Title="FFmpeg GUI 0.3" Height="427.679" Width="671.864" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button x:Name="btn_in" Content="Input" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Btn_in_Click"/>
+        <Button x:Name="btn_out" Content="Output" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="txt_fileIn" HorizontalAlignment="Left" Height="23" Margin="107,10,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="547"/>
+        <TextBox x:Name="txt_fileOut" HorizontalAlignment="Left" Height="23" Margin="107,41,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="547"/>
+        <Label Content="HW Acceleration" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_hw" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Width="100">
+            <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
+            <ComboBoxItem Content="Intel" Tag="qsv" />
+            <ComboBoxItem Content="CUDA" Tag="cuda" />
+        </ComboBox>
+        <Label Content="Resolution" HorizontalAlignment="Left" Margin="153,83,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_res" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="153,109,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
+            <ComboBoxItem Content="720P" Tag="1280x720"/>
+            <ComboBoxItem Content="1080P" Tag="1920x1080"/>
+            <ComboBoxItem Content="1440P" Tag="2560x1440"/>
+            <ComboBoxItem Content="2160P" Tag="3840x2160"/>
+        </ComboBox>
+        <Label Content="Frame" HorizontalAlignment="Left" Margin="283,83,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_fps" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="283,109,0,0" VerticalAlignment="Top" Width="60">
+            <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
+            <ComboBoxItem Content="25" Tag="25"/>
+            <ComboBoxItem Content="30" Tag="30"/>
+            <ComboBoxItem Content="50" Tag="50"/>
+            <ComboBoxItem Content="60" Tag="60"/>
+        </ComboBox>
+        <Label Content="Video Codec" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_video" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" Width="100">
+            <ComboBoxItem Content="Auto" Tag="" IsSelected="True"/>
+            <ComboBoxItem Content="h264" Tag="libxh264"/>
+            <ComboBoxItem Content="h264/Intel" Tag="h264_qsv"/>
+            <ComboBoxItem Content="h264/CUDA" Tag="h264_nvenc"/>
+            <ComboBoxItem Content="h265" Tag="libxh265"/>
+            <ComboBoxItem Content="hevc/Intel" Tag="hevc_qsv"/>
+            <ComboBoxItem Content="hevc/CUDA" Tag="hevc_nvenc"/>
+        </ComboBox>
+        <Label Content="Bits Rate" HorizontalAlignment="Left" Margin="123,145,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_vrate" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="123,171,0,0" VerticalAlignment="Top" Width="60">
+            <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
+            <ComboBoxItem Content="3M" Tag="3000K"/>
+            <ComboBoxItem Content="5M" Tag="5000K"/>
+            <ComboBoxItem Content="10M" Tag="10000K"/>
+            <ComboBoxItem Content="20M" Tag="20000K"/>
+        </ComboBox>
+        <Label Content="Audio Codec" HorizontalAlignment="Left" Margin="228,145,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_audio" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="228,171,0,0" VerticalAlignment="Top" Width="100">
+            <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
+            <ComboBoxItem Content="AAC" Tag="aac"/>
+            <ComboBoxItem Content="MP3" Tag="mp3"/>
+        </ComboBox>
+        <Label Content="Bits Rate" HorizontalAlignment="Left" Margin="341,145,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_arate" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="341,171,0,0" VerticalAlignment="Top" Width="60">
+            <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
+            <ComboBoxItem Content="128" Tag="128K"/>
+            <ComboBoxItem Content="196" Tag="196K"/>
+            <ComboBoxItem Content="256" Tag="256K"/>
+            <ComboBoxItem Content="512" Tag="512K"/>
+        </ComboBox>
+        <Button x:Name="btn_start" Content="Start" HorizontalAlignment="Left" Margin="12,227,0,0" VerticalAlignment="Top" Width="98" Click="Btn_start_Click" Height="39"/>
+        <RichTextBox x:Name="txt_cmd" HorizontalAlignment="Left" Height="95" Margin="10,280,0,0" VerticalAlignment="Top" Width="632">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+
+    </Grid>
+</Window>
