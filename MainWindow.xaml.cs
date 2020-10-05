@@ -29,7 +29,7 @@ namespace FFGui
 
                 string tmp = System.IO.Path.GetExtension(dialog.FileName);
 
-                this.txt_fileOut.Text = dialog.FileName.Replace(tmp, "_out" + tmp);
+                this.txt_fileOut.Text = dialog.FileName.Replace(tmp, "_out.mp4");
             }
         }
 
@@ -52,6 +52,11 @@ namespace FFGui
             if (this.cb_vrate.Text != "Auto")
             {
                 str += " -b:v " + this.cb_vrate.SelectedValue;
+            }
+
+            if (this.chk_deinter.IsChecked == true)
+            {
+                str += " -deinterlace ";
             }
 
             if (this.cb_audio.Text != "Auto")

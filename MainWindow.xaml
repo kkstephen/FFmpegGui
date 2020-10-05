@@ -17,16 +17,16 @@
             <ComboBoxItem Content="Intel" Tag="qsv" />
             <ComboBoxItem Content="CUDA" Tag="cuda" />
         </ComboBox>
-        <Label Content="Resolution" HorizontalAlignment="Left" Margin="153,83,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cb_res" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="153,109,0,0" VerticalAlignment="Top" Width="120">
+        <Label Content="Resolution" HorizontalAlignment="Left" Margin="128,83,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_res" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="128,109,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
             <ComboBoxItem Content="720P" Tag="1280x720"/>
             <ComboBoxItem Content="1080P" Tag="1920x1080"/>
             <ComboBoxItem Content="1440P" Tag="2560x1440"/>
             <ComboBoxItem Content="2160P" Tag="3840x2160"/>
         </ComboBox>
-        <Label Content="Frame" HorizontalAlignment="Left" Margin="283,83,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cb_fps" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="283,109,0,0" VerticalAlignment="Top" Width="60">
+        <Label Content="Frame" HorizontalAlignment="Left" Margin="258,83,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_fps" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="258,109,0,0" VerticalAlignment="Top" Width="60">
             <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
             <ComboBoxItem Content="25" Tag="25"/>
             <ComboBoxItem Content="30" Tag="30"/>
@@ -73,6 +73,7 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
+        <CheckBox x:Name="chk_deinter" Content="Deinterlace" HorizontalAlignment="Left" Margin="341,109,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
