@@ -16,6 +16,7 @@
             <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
             <ComboBoxItem Content="Intel" Tag="qsv" />
             <ComboBoxItem Content="CUDA" Tag="cuda" />
+            <ComboBoxItem Content="AMD" Tag="amf" />
         </ComboBox>
         <Label Content="Resolution" HorizontalAlignment="Left" Margin="128,83,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cb_res" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="128,109,0,0" VerticalAlignment="Top" Width="120">
@@ -39,9 +40,11 @@
             <ComboBoxItem Content="h264" Tag="libxh264"/>
             <ComboBoxItem Content="h264/Intel" Tag="h264_qsv"/>
             <ComboBoxItem Content="h264/CUDA" Tag="h264_nvenc"/>
+            <ComboBoxItem Content="h264/AMD" Tag="h264_amf"/>
             <ComboBoxItem Content="h265" Tag="libxh265"/>
             <ComboBoxItem Content="hevc/Intel" Tag="hevc_qsv"/>
             <ComboBoxItem Content="hevc/CUDA" Tag="hevc_nvenc"/>
+            <ComboBoxItem Content="hevc/AMD" Tag="hevc_amf"/>
         </ComboBox>
         <Label Content="Bits Rate" HorizontalAlignment="Left" Margin="123,145,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cb_vrate" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="123,171,0,0" VerticalAlignment="Top" Width="60">
