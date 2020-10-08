@@ -68,6 +68,11 @@ namespace FFGui
             {
                 str += " -b:a " + this.cb_arate.SelectedValue;
             }
+            
+            if (this.cb_chan.Text != "Auto")
+            {
+                str += " -ac " + this.cb_chan.SelectedValue;
+            }
 
             if (this.cb_res.Text != "Auto")
             {

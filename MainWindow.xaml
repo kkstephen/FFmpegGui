@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FFGui"
         mc:Ignorable="d"
-        Title="FFmpeg GUI 0.3" Height="427.679" Width="671.864" WindowStartupLocation="CenterScreen">
+        Title="FFmpeg GUI 0.31" Height="427.679" Width="671.864" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button x:Name="btn_in" Content="Input" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Btn_in_Click"/>
         <Button x:Name="btn_out" Content="Output" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="75"/>
@@ -37,11 +37,11 @@
         <Label Content="Video Codec" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cb_video" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" Width="100">
             <ComboBoxItem Content="Auto" Tag="" IsSelected="True"/>
-            <ComboBoxItem Content="h264" Tag="libxh264"/>
+            <ComboBoxItem Content="h264" Tag="libx264"/>
             <ComboBoxItem Content="h264/Intel" Tag="h264_qsv"/>
             <ComboBoxItem Content="h264/CUDA" Tag="h264_nvenc"/>
             <ComboBoxItem Content="h264/AMD" Tag="h264_amf"/>
-            <ComboBoxItem Content="h265" Tag="libxh265"/>
+            <ComboBoxItem Content="h265" Tag="libx265"/>
             <ComboBoxItem Content="hevc/Intel" Tag="hevc_qsv"/>
             <ComboBoxItem Content="hevc/CUDA" Tag="hevc_nvenc"/>
             <ComboBoxItem Content="hevc/AMD" Tag="hevc_amf"/>
@@ -68,7 +68,7 @@
             <ComboBoxItem Content="256" Tag="256K"/>
             <ComboBoxItem Content="512" Tag="512K"/>
         </ComboBox>
-        <Button x:Name="btn_start" Content="Start" HorizontalAlignment="Left" Margin="12,227,0,0" VerticalAlignment="Top" Width="98" Click="Btn_start_Click" Height="39"/>
+        <Button x:Name="btn_start" Content="Build Command" HorizontalAlignment="Left" Margin="12,227,0,0" VerticalAlignment="Top" Width="98" Click="Btn_start_Click" Height="39"/>
         <RichTextBox x:Name="txt_cmd" HorizontalAlignment="Left" Height="95" Margin="10,280,0,0" VerticalAlignment="Top" Width="632">
             <FlowDocument>
                 <Paragraph>
@@ -77,6 +77,11 @@
             </FlowDocument>
         </RichTextBox>
         <CheckBox x:Name="chk_deinter" Content="Deinterlace" HorizontalAlignment="Left" Margin="341,109,0,0" VerticalAlignment="Top"/>
+        <Label Content="Channel" HorizontalAlignment="Left" Margin="417,145,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_chan" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="417,171,0,0" VerticalAlignment="Top" Width="56">
+            <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
+            <ComboBoxItem Content="2" Tag="2"/>
+        </ComboBox>
 
     </Grid>
 </Window>
