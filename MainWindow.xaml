@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FFGui"
         mc:Ignorable="d"
-        Title="FFmpeg GUI 0.31" Height="427.679" Width="671.864" WindowStartupLocation="CenterScreen">
+        Title="FFmpeg GUI 0.2" Height="600" Width="680" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button x:Name="btn_in" Content="Input" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Btn_in_Click"/>
         <Button x:Name="btn_out" Content="Output" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="75"/>
@@ -46,30 +46,30 @@
             <ComboBoxItem Content="hevc/CUDA" Tag="hevc_nvenc"/>
             <ComboBoxItem Content="hevc/AMD" Tag="hevc_amf"/>
         </ComboBox>
-        <Label Content="Bits Rate" HorizontalAlignment="Left" Margin="123,145,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cb_vrate" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="123,171,0,0" VerticalAlignment="Top" Width="60">
+        <Label Content="Bits Rate" HorizontalAlignment="Left" Margin="128,145,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_vrate" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="128,171,0,0" VerticalAlignment="Top" Width="60">
             <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
             <ComboBoxItem Content="3M" Tag="3000K"/>
             <ComboBoxItem Content="5M" Tag="5000K"/>
             <ComboBoxItem Content="10M" Tag="10000K"/>
             <ComboBoxItem Content="20M" Tag="20000K"/>
         </ComboBox>
-        <Label Content="Audio Codec" HorizontalAlignment="Left" Margin="228,145,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cb_audio" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="228,171,0,0" VerticalAlignment="Top" Width="100">
+        <Label Content="Audio Codec" HorizontalAlignment="Left" Margin="9,208,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_audio" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="10,234,0,0" VerticalAlignment="Top" Width="100">
             <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
             <ComboBoxItem Content="AAC" Tag="aac"/>
             <ComboBoxItem Content="MP3" Tag="mp3"/>
         </ComboBox>
-        <Label Content="Bits Rate" HorizontalAlignment="Left" Margin="341,145,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cb_arate" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="341,171,0,0" VerticalAlignment="Top" Width="60">
+        <Label Content="Bits Rate" HorizontalAlignment="Left" Margin="128,208,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_arate" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="128,234,0,0" VerticalAlignment="Top" Width="60">
             <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
             <ComboBoxItem Content="128" Tag="128K"/>
             <ComboBoxItem Content="196" Tag="196K"/>
             <ComboBoxItem Content="256" Tag="256K"/>
             <ComboBoxItem Content="512" Tag="512K"/>
         </ComboBox>
-        <Button x:Name="btn_start" Content="Build Command" HorizontalAlignment="Left" Margin="12,227,0,0" VerticalAlignment="Top" Width="98" Click="Btn_start_Click" Height="39"/>
-        <RichTextBox x:Name="txt_cmd" HorizontalAlignment="Left" Height="95" Margin="10,280,0,0" VerticalAlignment="Top" Width="632">
+        <Button x:Name="btn_start" Content="Build Command" HorizontalAlignment="Left" Margin="10,385,0,0" VerticalAlignment="Top" Width="98" Click="Btn_start_Click" Height="39"/>
+        <RichTextBox x:Name="txt_cmd" HorizontalAlignment="Left" Height="95" Margin="10,453,0,0" VerticalAlignment="Top" Width="632">
             <FlowDocument>
                 <Paragraph>
                     <Run Text=""/>
@@ -77,11 +77,19 @@
             </FlowDocument>
         </RichTextBox>
         <CheckBox x:Name="chk_deinter" Content="Deinterlace" HorizontalAlignment="Left" Margin="341,109,0,0" VerticalAlignment="Top"/>
-        <Label Content="Channel" HorizontalAlignment="Left" Margin="417,145,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cb_chan" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="417,171,0,0" VerticalAlignment="Top" Width="56">
+        <Label Content="Channel" HorizontalAlignment="Left" Margin="198,208,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_chan" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="198,234,0,0" VerticalAlignment="Top" Width="56">
             <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
             <ComboBoxItem Content="2" Tag="2"/>
         </ComboBox>
+        <CheckBox x:Name="chk_vcopy" Content="Copy Video" HorizontalAlignment="Left" Margin="207,171,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chk_acopy" Content="Copy Audio" HorizontalAlignment="Left" Margin="272,234,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sub-clip Creation" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top"/>
+        <Label Content="Start" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_start" HorizontalAlignment="Left" Height="23" Margin="49,323,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="96"/>
+        <Label Content="End" HorizontalAlignment="Left" Margin="172,319,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_end" HorizontalAlignment="Left" Height="23" Margin="207,323,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="96"/>
+        <Button x:Name="btn_clear" Content="Clear" HorizontalAlignment="Left" Margin="128,385,0,0" VerticalAlignment="Top" Width="101" Height="39" Click="Btn_clear_Click"/>
 
     </Grid>
 </Window>

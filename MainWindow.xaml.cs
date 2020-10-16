@@ -54,9 +54,14 @@ namespace FFGui
                 str += " -b:v " + this.cb_vrate.SelectedValue;
             }
 
+            if (this.chk_vcopy.IsChecked == true)
+            {
+                str += " -vcodec copy";
+            }
+
             if (this.chk_deinter.IsChecked == true)
             {
-                str += " -deinterlace ";
+                str += " -deinterlace";
             }
 
             if (this.cb_audio.Text != "Auto")
@@ -68,7 +73,12 @@ namespace FFGui
             {
                 str += " -b:a " + this.cb_arate.SelectedValue;
             }
-            
+
+            if (this.chk_vcopy.IsChecked == true)
+            {
+                str += " -acodec copy ";
+            }
+
             if (this.cb_chan.Text != "Auto")
             {
                 str += " -ac " + this.cb_chan.SelectedValue;
@@ -84,10 +94,33 @@ namespace FFGui
                 str += " -r " + this.cb_fps.SelectedValue;
             }
 
+            if (this.txt_end.Text != "0")
+            {
+                int s = 0;
+                int n = 0;
+
+                if (int.TryParse(this.txt_end.Text, out n) && int.TryParse(this.txt_start.Text, out s))
+                {
+                    if (n > s && s >= 0)
+                    {
+                        str += " -ss " + s + " -to " + n;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Time factor number is worng!");
+                }
+            }
+
             str += " \"" + this.txt_fileOut.Text + "\"";
 
             this.txt_cmd.Document.Blocks.Clear();
             this.txt_cmd.AppendText(str);
+        }
+
+        private void Btn_clear_Click(object sender, RoutedEventArgs e)
+        {
+            this.txt_cmd.Document.Blocks.Clear();
         }
     }
 }
