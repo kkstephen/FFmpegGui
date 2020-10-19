@@ -42,41 +42,45 @@ namespace FFGui
                 str += " -hwaccel_output_format " + this.cb_hw.SelectedValue;
             }
 
-            str += " -i \"" + this.txt_fileIn.Text + "\"";
-
-            if (this.cb_video.Text != "Auto")
-            {
-                str += " -c:v " + this.cb_video.SelectedValue;
-            }
-
-            if (this.cb_vrate.Text != "Auto")
-            {
-                str += " -b:v " + this.cb_vrate.SelectedValue;
-            }
+            str += " -i \"" + this.txt_fileIn.Text + "\"";            
 
             if (this.chk_vcopy.IsChecked == true)
             {
                 str += " -vcodec copy";
+            }
+            else
+            {
+                if (this.cb_video.Text != "Auto")
+                {
+                    str += " -c:v " + this.cb_video.SelectedValue;
+                }
+
+                if (this.cb_vrate.Text != "Auto")
+                {
+                    str += " -b:v " + this.cb_vrate.SelectedValue;
+                }
             }
 
             if (this.chk_deinter.IsChecked == true)
             {
                 str += " -deinterlace";
             }
-
-            if (this.cb_audio.Text != "Auto")
-            {
-                str += " -c:a " + this.cb_audio.SelectedValue;
-            }
-
-            if (this.cb_arate.Text != "Auto")
-            {
-                str += " -b:a " + this.cb_arate.SelectedValue;
-            }
-
-            if (this.chk_vcopy.IsChecked == true)
+            
+            if (this.chk_acopy.IsChecked == true)
             {
                 str += " -acodec copy ";
+            }
+            else
+            {
+                if (this.cb_audio.Text != "Auto")
+                {
+                    str += " -c:a " + this.cb_audio.SelectedValue;
+                }
+
+                if (this.cb_arate.Text != "Auto")
+                {
+                    str += " -b:a " + this.cb_arate.SelectedValue;
+                }
             }
 
             if (this.cb_chan.Text != "Auto")
