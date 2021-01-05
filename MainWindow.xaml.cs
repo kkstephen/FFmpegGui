@@ -44,6 +44,11 @@ namespace FFGui
 
             str += " -i \"" + this.txt_fileIn.Text + "\"";            
 
+            if (this.qsize.IsChecked == true)
+            {
+                str += " -max_muxing_queue_size 1024 ";
+            }
+
             if (this.chk_vcopy.IsChecked == true)
             {
                 str += " -vcodec copy";
@@ -98,22 +103,33 @@ namespace FFGui
                 str += " -r " + this.cb_fps.SelectedValue;
             }
 
-            if (this.txt_end.Text != "0")
+            //subclip
+
+            int s = 0;
+
+            if (this.txt_start.Text != "0")
             {
-                int s = 0;
+                if (int.TryParse(this.txt_start.Text, out s))
+                {
+                    if (s > 0) str += " -ss " + s;
+                }
+            }
+
+            if (this.txt_end.Text != "0")
+            {                
                 int n = 0;
 
-                if (int.TryParse(this.txt_end.Text, out n) && int.TryParse(this.txt_start.Text, out s))
-                {
-                    if (n > s && s >= 0)
+                if (int.TryParse(this.txt_end.Text, out n))
+                { 
+                    if (n > 0 && n > s)
                     {
-                        str += " -ss " + s + " -to " + n;
+                        str += " -to " + n;
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Time factor number is worng!");
-                }
+                    else
+                    {
+                        MessageBox.Show("Time factor number is worng!");
+                    }
+                }             
             }
 
             str += " \"" + this.txt_fileOut.Text + "\"";

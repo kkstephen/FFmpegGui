@@ -26,8 +26,8 @@
             <ComboBoxItem Content="1440P" Tag="2560x1440"/>
             <ComboBoxItem Content="2160P" Tag="3840x2160"/>
         </ComboBox>
-        <Label Content="Frame" HorizontalAlignment="Left" Margin="258,83,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cb_fps" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="258,109,0,0" VerticalAlignment="Top" Width="60">
+        <Label Content="Frame" HorizontalAlignment="Left" Margin="272,83,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_fps" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="272,109,0,0" VerticalAlignment="Top" Width="60">
             <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
             <ComboBoxItem Content="25" Tag="25"/>
             <ComboBoxItem Content="30" Tag="30"/>
@@ -49,6 +49,9 @@
         <Label Content="Bits Rate" HorizontalAlignment="Left" Margin="128,145,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cb_vrate" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="128,171,0,0" VerticalAlignment="Top" Width="60">
             <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
+            <ComboBoxItem Content="600K" Tag="600K"/>
+            <ComboBoxItem Content="1200K" Tag="1200K"/>
+            <ComboBoxItem Content="2M" Tag="2000K"/>
             <ComboBoxItem Content="3M" Tag="3000K"/>
             <ComboBoxItem Content="5M" Tag="5000K"/>
             <ComboBoxItem Content="10M" Tag="10000K"/>
@@ -76,20 +79,21 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <CheckBox x:Name="chk_deinter" Content="Deinterlace" HorizontalAlignment="Left" Margin="341,109,0,0" VerticalAlignment="Top"/>
-        <Label Content="Channel" HorizontalAlignment="Left" Margin="198,208,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cb_chan" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="198,234,0,0" VerticalAlignment="Top" Width="56">
+        <CheckBox x:Name="chk_deinter" Content="Deinterlace" HorizontalAlignment="Left" Margin="362,112,0,0" VerticalAlignment="Top"/>
+        <Label Content="Channel" HorizontalAlignment="Left" Margin="211,208,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_chan" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="211,234,0,0" VerticalAlignment="Top" Width="56">
             <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
             <ComboBoxItem Content="2" Tag="2"/>
         </ComboBox>
-        <CheckBox x:Name="chk_vcopy" Content="Copy Video" HorizontalAlignment="Left" Margin="207,171,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="chk_acopy" Content="Copy Audio" HorizontalAlignment="Left" Margin="272,234,0,0" VerticalAlignment="Top"/>
-        <Label Content="Sub-clip Creation" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chk_vcopy" Content="Copy Video" HorizontalAlignment="Left" Margin="207,174,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chk_acopy" Content="Copy Audio" HorizontalAlignment="Left" Margin="287,237,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sub-clip or trim Creation" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top"/>
         <Label Content="Start" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txt_start" HorizontalAlignment="Left" Height="23" Margin="49,323,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="96"/>
         <Label Content="End" HorizontalAlignment="Left" Margin="172,319,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txt_end" HorizontalAlignment="Left" Height="23" Margin="207,323,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="96"/>
         <Button x:Name="btn_clear" Content="Clear" HorizontalAlignment="Left" Margin="128,385,0,0" VerticalAlignment="Top" Width="101" Height="39" Click="Btn_clear_Click"/>
+        <CheckBox x:Name="qsize" Content="Large Queue Size" HorizontalAlignment="Left" Margin="475,113,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
