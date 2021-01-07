@@ -66,6 +66,11 @@ namespace FFGui
                 }
             }
 
+            if (this.bit8only.IsChecked == true)
+            {
+                str += " -vf format=yuv420p";
+            }
+
             if (this.chk_deinter.IsChecked == true)
             {
                 str += " -deinterlace";

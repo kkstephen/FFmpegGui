@@ -94,6 +94,7 @@
         <TextBox x:Name="txt_end" HorizontalAlignment="Left" Height="23" Margin="207,323,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="96"/>
         <Button x:Name="btn_clear" Content="Clear" HorizontalAlignment="Left" Margin="128,385,0,0" VerticalAlignment="Top" Width="101" Height="39" Click="Btn_clear_Click"/>
         <CheckBox x:Name="qsize" Content="Large Queue Size" HorizontalAlignment="Left" Margin="475,113,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="bit8only" Content="8 bit Output" HorizontalAlignment="Left" Margin="315,174,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
