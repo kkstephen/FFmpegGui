@@ -14,6 +14,8 @@ namespace FFGui
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly string AUTO = "Auto";
+
         public MainWindow()
         {
             InitializeComponent();
@@ -42,100 +44,119 @@ namespace FFGui
         }
 
         private void Btn_start_Click(object sender, RoutedEventArgs e)
-        {
-            string str = "ffmpeg";
+        { 
+            StringBuilder cmd = new StringBuilder("ffmpeg");
 
-            if (this.cb_hw.Text != "Auto")
+            if (this.cb_hw.Text != this.AUTO)
             {
-                str += " -hwaccel_output_format " + this.cb_hw.SelectedValue;
+                cmd.Append(" -hwaccel_output_format " + this.cb_hw.SelectedValue);
             }
 
-            str += " -i \"" + this.txt_fileIn.Text + "\"";            
+            cmd.Append(" -i \"" + this.txt_fileIn.Text + "\"");            
 
             if (this.qsize.IsChecked == true)
             {
-                str += " -max_muxing_queue_size 1024 ";
+                cmd.Append(" -max_muxing_queue_size 1024 ");
             }
 
             //video codec
-            if (this.cb_video.Text == "Auto" && this.cb_vrate.Text == "Auto")
+            if (this.cb_video.Text == this.AUTO && this.cb_vrate.Text == this.AUTO)
             {
-                str += " -vcodec copy";
+                if (this.chk_inst.IsChecked != true)
+                {
+                    cmd.Append(" -vcodec copy");
+                }
+                else
+                {
+                    cmd.Append(" -vn");
+                }
             }
             else
             {
-                if (this.cb_video.Text != "Auto")
+                //video codes
+                if (this.cb_video.Text != this.AUTO)
                 {
-                    str += " -c:v " + this.cb_video.SelectedValue;
+                    cmd.Append(" -c:v " + this.cb_video.SelectedValue);
                 }
 
-                if (this.cb_vrate.Text != "Auto")
+                //video bitrate
+                if (this.cb_vrate.Text != this.AUTO)
                 {
-                    str += " -b:v " + this.cb_vrate.SelectedValue;
+                    cmd.Append(" -b:v " + this.cb_vrate.SelectedValue);
                 }
 
-                str += " -bufsize " + this.cb_vrate.SelectedValue;
+                cmd.Append(" -bufsize " + this.cb_vrate.SelectedValue);
+            }
+
+            if (this.cb_res.Text != this.AUTO)
+            {
+                cmd.Append(" -s " + this.cb_res.SelectedValue);
+            }
+
+            if (this.cb_fps.Text != this.AUTO)
+            {
+                cmd.Append(" -r " + this.cb_fps.SelectedValue);
             }
 
             //8bit only
             if (this.bit8only.IsChecked == true)
             {
-                str += " -vf format=yuv420p";
+                cmd.Append(" -vf format=yuv420p");
             }
 
             //1080i compensate
             if (this.chk_deinter.IsChecked == true)
             {
-                str += " -deinterlace";
+                cmd.Append(" -deinterlace");
             }
 
             //profile level
-            if (this.cb_profile.Text != "Auto")
+            if (this.cb_profile.Text != this.AUTO)
             {
                 switch(this.cb_profile.SelectedIndex)
                 {
                     case 1:
-                        str += " -profile:v main -level:v 4";
+                        cmd.Append(" -profile:v main -level:v 4");
                         break;
-                    case 2: str += " -profile:v high -level:v 4.2";
+                    case 2:
+                        cmd.Append(" -profile:v high -level:v 4.2");
                         break;
                     default:                       
                         break;
                 }
             }
             
-            if (this.cb_audio.Text == "Auto" && this.cb_arate.Text == "Auto")
+            if (this.cb_audio.Text == this.AUTO && this.cb_arate.Text == this.AUTO)
             {
-                str += " -acodec copy ";
+                cmd.Append(" -acodec copy ");
             }
             else
             {
-                if (this.cb_audio.Text != "Auto")
+                //audio codes
+                if (this.cb_audio.Text != this.AUTO)
                 {
-                    str += " -c:a " + this.cb_audio.SelectedValue;
+                    cmd.Append(" -c:a " + this.cb_audio.SelectedValue);
                 }
 
-                if (this.cb_arate.Text != "Auto")
+                //audio bitrate 
+                if (this.cb_arate.Text != this.AUTO)
                 {
-                    str += " -b:a " + this.cb_arate.SelectedValue;
+                    cmd.Append(" -b:a " + this.cb_arate.SelectedValue);
                 }
             }
 
-            if (this.cb_chan.Text != "Auto")
+            //channel
+            if (this.cb_chan.Text != this.AUTO)
             {
-                str += " -ac " + this.cb_chan.SelectedValue;
+                cmd.Append(" -ac " + this.cb_chan.SelectedValue);
             }
-
-            if (this.cb_res.Text != "Auto")
+            
+            //simple rate
+            if (this.cb_sr.Text != this.AUTO)
             {
-                str += " -s " + this.cb_res.SelectedValue;
+                cmd.Append(" -ar " + this.cb_sr.SelectedValue);
             }
-
-            if (this.cb_fps.Text != "Auto")
-            {
-                str += " -r " + this.cb_fps.SelectedValue;
-            }
-
+            
             //subclip
             int s = 0;
 
@@ -143,7 +164,7 @@ namespace FFGui
             {
                 if (int.TryParse(this.txt_start.Text, out s))
                 {
-                    if (s > 0) str += " -ss " + s;
+                    if (s > 0) cmd.Append(" -ss " + s);
                 }
             }
 
@@ -155,7 +176,7 @@ namespace FFGui
                 { 
                     if (n > 0 && n > s)
                     {
-                        str += " -to " + n;
+                        cmd.Append(" -to " + n);
                     }
                     else
                     {
@@ -171,9 +192,12 @@ namespace FFGui
                 output = System.IO.Path.GetDirectoryName(this.txt_fileIn.Text) + "\\" + GetFileName(this.txt_fileIn.Text, this.chk_format.IsChecked);
             }
 
-            str += " \"" + output + "\"";
+            cmd.Append(" \"" + output + "\"");
 
             this.txt_cmd.Document.Blocks.Clear();
+
+            string str = cmd.ToString();
+
             this.txt_cmd.AppendText(str);
         }
 

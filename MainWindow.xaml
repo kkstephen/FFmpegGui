@@ -65,6 +65,7 @@
         <Label Content="Bits Rate" HorizontalAlignment="Left" Margin="128,208,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cb_arate" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="128,234,0,0" VerticalAlignment="Top" Width="60">
             <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
+            <ComboBoxItem Content="96" Tag="96k"/>
             <ComboBoxItem Content="128" Tag="128K"/>
             <ComboBoxItem Content="196" Tag="196K"/>
             <ComboBoxItem Content="256" Tag="256K"/>
@@ -82,6 +83,7 @@
         <Label Content="Channel" HorizontalAlignment="Left" Margin="211,208,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cb_chan" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="211,234,0,0" VerticalAlignment="Top" Width="56">
             <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
+            <ComboBoxItem Content="1" Tag="1"/>
             <ComboBoxItem Content="2" Tag="2"/>
         </ComboBox>
         <Label Content="Sub-clip or trim Creation" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top"/>
@@ -100,6 +102,14 @@
         <Label Content="Profile Level" HorizontalAlignment="Left" Margin="212,145,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btn_copy" Content="Copy" HorizontalAlignment="Left" Margin="249,385,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="Btn_copy_Click"/>
         <CheckBox x:Name="chk_format" Content="MP4" HorizontalAlignment="Left" Margin="457,174,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lb_sp" Content="Simple Rate" HorizontalAlignment="Left" Margin="294,208,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_sr" HorizontalAlignment="Left" Margin="294,234,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="Tag">
+            <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
+            <ComboBoxItem Content="44.1k" Tag="44100"/>
+            <ComboBoxItem Content="48k" Tag="48000"/>
+            <ComboBoxItem Content="96k" Tag="96000"/>
+        </ComboBox>
+        <CheckBox x:Name="chk_inst" Content="Instrumental" HorizontalAlignment="Left" Margin="441,234,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
