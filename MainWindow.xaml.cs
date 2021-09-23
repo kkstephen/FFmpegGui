@@ -128,7 +128,7 @@ namespace FFGui
             
             if (this.cb_audio.Text == this.AUTO && this.cb_arate.Text == this.AUTO)
             {
-                cmd.Append(" -acodec copy ");
+                cmd.Append(" -c:a copy ");
             }
             else
             {

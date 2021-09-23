@@ -45,12 +45,16 @@
             <ComboBoxItem Content="hevc/Intel" Tag="hevc_qsv"/>
             <ComboBoxItem Content="hevc/CUDA" Tag="hevc_nvenc"/>
             <ComboBoxItem Content="hevc/AMD" Tag="hevc_amf"/>
+            <ComboBoxItem Content="VP9/Intel" Tag="vp9_qsv"/>
+            <ComboBoxItem Content="VP9/CUDA" Tag="vp9_cuvid"/>
+            <ComboBoxItem Content="VP8" Tag="libvpx"/>
+            <ComboBoxItem Content="VP9" Tag="libvpx-vp9"/>
         </ComboBox>
         <Label Content="Bits Rate" HorizontalAlignment="Left" Margin="128,145,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cb_vrate" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="128,171,0,0" VerticalAlignment="Top" Width="60">
             <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
             <ComboBoxItem Content="1200K" Tag="1200K"/>
-            <ComboBoxItem Content="1500K" Tag="1200K"/>
+            <ComboBoxItem Content="1500K" Tag="1500K"/>
             <ComboBoxItem Content="5M" Tag="5M"/>
             <ComboBoxItem Content="10M" Tag="10M"/>
             <ComboBoxItem Content="15M" Tag="15M"/>
@@ -61,6 +65,7 @@
             <ComboBoxItem Content="Auto" IsSelected="True" Tag=""/>
             <ComboBoxItem Content="AAC" Tag="aac"/>
             <ComboBoxItem Content="MP3" Tag="mp3"/>
+            <ComboBoxItem Content="OGG" Tag="libvorbis"/>
         </ComboBox>
         <Label Content="Bits Rate" HorizontalAlignment="Left" Margin="128,208,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cb_arate" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="128,234,0,0" VerticalAlignment="Top" Width="60">
